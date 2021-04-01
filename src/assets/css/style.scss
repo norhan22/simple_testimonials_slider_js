@@ -1,0 +1,144 @@
+/* Basic Rule
+--------------------------*/
+main {
+    height: 90vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+section {
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 50vh;
+    filter: drop-shadow(0 20px 10px rgba(0, 0, 0, .3));
+    margin: 10px auto;
+    padding: 20px;
+    background: #efefef;
+    border-radius: 20px;
+
+}
+
+
+/* Slider Style
+--------------------------*/
+.slider {
+
+
+    position: relative;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+
+    .slides {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+
+        .item {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            &.active {
+                opacity: 1;
+                z-index: 2;
+            }
+        }
+
+    }
+
+    .navigation {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+
+        >div {
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: .7;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        @media(max-width: 440px) {
+            & {
+                position: relative;
+                width: 80px;
+
+            }
+        }
+    }
+
+    .feedback {
+        &::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            opacity: .6;
+            font-size: 1.5rem;
+
+        }
+
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &_desc {
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.5;
+            width: 90%;
+            margin: 30px auto;
+            min-height: 200px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &_client {
+
+            margin: 0;
+
+            small {
+                display: block;
+                margin: 3px;
+                letter-spacing: 2px;
+                margin-top: 10px;
+                opacity: .8;
+            }
+
+            &_name {
+                letter-spacing: 2px;
+                opacity: .6;
+
+            }
+
+            &_country {}
+
+            &_site {}
+        }
+    }
+}
